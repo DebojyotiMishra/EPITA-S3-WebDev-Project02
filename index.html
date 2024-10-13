@@ -1,28 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
-		<style>
-			main {
-				min-height: 75dvh;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-		</header>
-		<main class="container">
-			<section class="result">
-				<h2>Here's the result for your search ... ✨</h2>
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2 dynamic_data"></div>
-			</section>			
-		</main>
-		<footer class="py-3 my-4">
-			<p class="text-center text-body-secondary">© 2024 Company, Inc</p>
-		</footer>
-		<script type="module" src="/main.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Music Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2C2C2E;
+            color: #FFFFFF;
+        }
+
+        .btn-primary {
+            background-color: #1BD956;
+            border-color: #1BD956;
+        }
+
+        .btn-primary:hover {
+            background-color: #1BD956;
+            opacity: 0.9;
+        }
+
+        .form-control {
+            background-color: #3A3A3C;
+            border-color: #3A3A3C;
+            color: #FFFFFF;
+        }
+
+        .form-control:focus {
+            background-color: #3A3A3C;
+            color: #FFFFFF;
+            border-color: #1BD956;
+            box-shadow: none;
+        }
+
+        .card {
+            background-color: #3A3A3C;
+            border: none;
+            color: #FFFFFF;
+        }
+
+        .card-img-top {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-body {
+            background-color: #424245;
+        }
+
+        h1 {
+            color: #1BD956;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+
+    <div class="container text-center my-5">
+        <h1 class="mb-4">Spotify Music Search</h1>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search-input" placeholder="Search for a song or artist">
+                    <button class="btn btn-primary" onclick="searchSpotify()">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= Loading spinner =================== -->
+        <div class="spinner-container d-none" id="spinner">
+            <div class="d-flex justify-content-center m-5">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= No results found message ================= -->
+        <div class="p-2">
+            <div class="alert alert-warning m-auto d-none" id="no-results-alert" role="alert">
+                No results found with this name...
+            </div>
+        </div>
+
+        <div class="row" id="results">
+            <!-- ============== SEARCH RESULTS ================== -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
 </html>
